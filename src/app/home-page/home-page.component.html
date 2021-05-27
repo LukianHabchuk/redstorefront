@@ -1,0 +1,67 @@
+<div class="header">
+  <div class="container">
+    <app-navbar></app-navbar>
+    <div class="row">
+      <div class="col-2">
+        <h1>Give your workout a new style</h1>
+        <p>success isn't always about greatness</p>
+        <a href="" class="btn">Explore now &#8594;</a>
+      </div>
+      <div class="col-2">
+        <img src="./assets/images/image1.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- featured products -->
+<div class="small-container">
+  <div class="row">
+    <div *ngFor="let product of productList" class="col-4">
+      <a href="/product-details/{{product.id}}">
+        <img src="./assets{{product.img}}" alt="">
+        <h4>{{product.name}}</h4>
+        <div class="rating">
+          <i *ngIf="product.ratio.valueOf()>=1" class="fa fa-star"></i>
+          <i *ngIf="product.ratio.valueOf()>=2" class="fa fa-star"></i>
+          <i *ngIf="product.ratio.valueOf()>=3" class="fa fa-star"></i>
+          <i *ngIf="product.ratio.valueOf()>=4" class="fa fa-star"></i>
+          <i *ngIf="product.ratio.valueOf()==5" class="fa fa-star"></i>
+        </div>
+        <p>{{product.price}}$</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- brands -->
+<div class="brands">
+  <div class="small-container">
+    <div class="row">
+      <div class="col-5">
+        <img src="./assets/images/logo-godrej.png" alt="">
+      </div>
+      <div class="col-5">
+        <img src="./assets/images/logo-oppo.png" alt="">
+      </div>
+      <div class="col-5">
+        <img src="./assets/images/logo-coca-cola.png" alt="">
+      </div>
+      <div class="col-5">
+        <img src="./assets/images/logo-paypal.png" alt="">
+      </div>
+      <div class="col-5">
+        <img src="./assets/images/logo-philips.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Notification for no employees -->
+<div *ngIf="productList?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO PRODUCTS!</h4>
+    <p>No products were found.</p>
+  </div>
+</div>
+<app-footer></app-footer>
