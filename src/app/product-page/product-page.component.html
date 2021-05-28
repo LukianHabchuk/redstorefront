@@ -1,0 +1,66 @@
+<div *ngIf="product$ | async as product">
+  <div class="small-container single-product">
+    <div class="row">
+      <div class="col-2">
+        <img src="./assets{{product.img}}" width="100%" id="ProductImg" alt="">
+      </div>
+      <div class="col-2">
+        <h1>{{product.name}}</h1>
+        <h4>{{product.price}}$</h4>
+
+        <form action="" method="post">
+          <div [ngSwitch]="product.type">
+            <label>
+              <select *ngSwitchCase="'SHOES'" name="size">
+                <option value="">Select Size</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+              </select>
+            </label>
+            <label>
+              <select *ngSwitchCase="'ELECTRONIC'" name="size">
+                <option value="OneSize">One Size</option>
+              </select>
+            </label>
+            <label>
+              <select *ngSwitchDefault name="size">
+                <option value="">Select Size</option>
+                <option value="XXL">XXL</option>
+                <option value="XL">XL</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="S">S</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <input name="count" type="number" value="1">
+          </label>
+          <button type="submit" class="btn">Add to cart</button>
+        </form>
+
+        <h3>Product Details <i class="fa fa-indent"></i></h3>
+        <br>
+        <p>{{product.details}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-container">
+    <div class="row row-2">
+      <h2>Related products</h2>
+      <p>View more</p>
+    </div>
+  </div>
+
+  <div *ngIf="relatedProducts$ | async as relatedProducts" class="small-container">
+    <div class="row">
+      <app-product class="col-4" *ngFor="let product of relatedProducts; let i = index;" [product]="product"></app-product>
+    </div>
+  </div>
+</div>
+

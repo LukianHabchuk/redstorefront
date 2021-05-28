@@ -1,0 +1,13 @@
+<a href="/product-details/{{product.id}}">
+  <img src="./assets{{product.img}}" alt="">
+  <h4>{{product.name}}</h4>
+  <div class="rating">
+    <i *ngIf="product.ratio.valueOf()>=1" class="fa fa-star"></i>
+    <i *ngIf="product.ratio.valueOf()>=2" class="fa fa-star"></i>
+    <i *ngIf="product.ratio.valueOf()>=3" class="fa fa-star"></i>
+    <i *ngIf="product.ratio.valueOf()>=4" class="fa fa-star"></i>
+    <i *ngIf="product.ratio.valueOf()==5" class="fa fa-star"></i>
+  </div>
+  <p>{{product.price}}$</p>
+</a>
+

@@ -14,6 +14,10 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.apiServerUrl}/product/all`);
   }
 
+  public getRelated(productId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiServerUrl}/product/related/${productId}`);
+  }
+
   public createProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(`${this.apiServerUrl}/product/add`, product);
   }
@@ -24,5 +28,9 @@ export class ProductService {
 
   public deleteProduct(productId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/product/delete/${productId}`);
+  }
+
+  public getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiServerUrl}/product/find/${id}`);
   }
 }
