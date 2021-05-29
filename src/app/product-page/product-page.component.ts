@@ -15,6 +15,8 @@ export class ProductPageComponent implements OnInit {
   relatedProducts$: Observable<Product[]>;
   @Input()
   ngSwitch: any;
+  selectList: string[] = [];
+
 
   constructor(private productService: ProductService, private router: ActivatedRoute) { }
 
@@ -29,7 +31,22 @@ export class ProductPageComponent implements OnInit {
         this.productService.getProduct(Number(params.get('id')))
       )
     );
+    this.product$.subscribe(product => this.getList(product));
   }
+
+  public getList(product: Product): void {
+    switch (product.type.toString()) {
+      case 'SHOES':
+        this.selectList = ['37', '38', '39', '40', '41', '42', '43', '44'];
+        break;
+      case 'ELECTRONIC':
+        this.selectList = ['One Size'];
+        break;
+      default:
+        this.selectList = ['XXL', 'XL', 'L', 'M', 'S', 'XS'];
+    }
+  }
+
 
   public getRelated(): void {
     this.relatedProducts$ = this.router.paramMap.pipe(

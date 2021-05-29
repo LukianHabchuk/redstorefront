@@ -1,4 +1,4 @@
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
 import {ProductPageComponent} from './product-page/product-page.component';
 import {NgModule} from '@angular/core';
@@ -9,7 +9,9 @@ const ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(ROUTES)],
+  imports: [RouterModule.forRoot(ROUTES, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 
