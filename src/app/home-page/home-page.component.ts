@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../shared/product.service';
 import {Product} from '../shared/interfaces';
-import {HttpErrorResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +9,9 @@ import {HttpErrorResponse} from '@angular/common/http';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  productList: Product[];
+  productList: Product[] = [];
+  pSub: Subscription;
+  searchStr = '';
 
   constructor(private productService: ProductService) { }
 
@@ -18,15 +20,12 @@ export class HomePageComponent implements OnInit {
   }
 
   public getProducts(): void {
-    this.productService.getAll().subscribe(
-      (response: Product[]) => {
-        this.productList = response;
-        console.log(this.productList);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+    this.pSub = this.productService.getAll().subscribe(products => {
+      this.productList = products;
+    });
   }
 
+  public reset(): void {
+    this.searchStr = '';
+  }
 }

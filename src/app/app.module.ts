@@ -12,6 +12,7 @@ import { BrandsComponent } from './home-page/brands/brands.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import {AppRoutingModule} from './app-routing.module';
+import {FilterPipe} from './home-page/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {AppRoutingModule} from './app-routing.module';
     NavbarComponent,
     BrandsComponent,
     ProductComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

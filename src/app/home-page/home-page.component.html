@@ -13,14 +13,20 @@
   </div>
 </div>
 
-<!-- featured products -->
+<!-- products -->
 <div class="small-container">
   <div class="row row-2">
     <h1>Products</h1>
-    <p>Search</p>
+    <div>
+      <form class="search-box">
+        <input name="search" type="text" placeholder="search"
+               [(ngModel)]="searchStr">
+        <button (click)="reset()" type="reset"></button>
+      </form>
+    </div>
   </div>
   <div class="row">
-    <app-product class="col-4" *ngFor="let product of productList" [product]="product"></app-product>
+    <app-product class="col-4" *ngFor="let product of productList | searchProducts : searchStr" [product]="product"></app-product>
   </div>
 </div>
 
