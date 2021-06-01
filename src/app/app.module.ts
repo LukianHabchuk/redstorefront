@@ -13,15 +13,16 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FilterPipe} from './home-page/filter.pipe';
+import {AccountModule} from './account/account.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     FooterComponent,
     NavbarComponent,
     BrandsComponent,
     ProductComponent,
+    HomePageComponent,
     ProductPageComponent,
     FilterPipe
   ],
@@ -30,7 +31,8 @@ import {FilterPipe} from './home-page/filter.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AccountModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

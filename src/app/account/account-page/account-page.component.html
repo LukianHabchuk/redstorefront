@@ -1,0 +1,22 @@
+<div class="account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <img src="./assets/images/image1.png">
+      </div>
+      <div class="col-2">
+        <div class="form-container">
+          <div class="form-btn">
+            <span  (click)="login()">Login</span>
+            <span (click)="register()">Register</span>
+            <hr style="{{indicator}}" id="Indicator">
+          </div>
+          <!--          if not authorised-->
+          <app-login [loginStyle]="loginStyle"></app-login>
+          <!--          if authorised-->
+          <app-registration [regStyle]="regStyle"></app-registration>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

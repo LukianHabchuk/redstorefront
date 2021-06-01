@@ -17,3 +17,26 @@ export enum ProductType {
 export enum Tag {
   NEW, SALE, EXCLUSIVE, FEATURED, STANDARD
 }
+
+export interface UserDTO {
+  userName: string;
+  email: string;
+  password: string;
+}
+
+export interface User {
+  id: number;
+  userName: string;
+  email: string;
+  password: string;
+  role: Role;
+  status: Status;
+}
+
+export enum Role {
+  ADMIN, USER
+}
+
+export enum Status {
+  ACTIVE, BANNED
+}
