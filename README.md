@@ -1,3 +1,5 @@
+`api: https://github.com/LukianHabchuk/redstoreapi`
+
 # StoreFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
